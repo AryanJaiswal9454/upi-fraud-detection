@@ -4,7 +4,7 @@
 ## 📌 Project Overview
 An AI/ML-powered system to detect fraudulent UPI transactions in real-time using machine learning algorithms including Random Forest, Gradient Boosting, and Logistic Regression.
 
-## 🚀 How to Run
+## 🚀 How to Run contact aryanjaiswal6342@gmail.com for full project
 
 ### Step 1 — Setup virtual environment
 ```bash
