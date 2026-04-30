@@ -1,0 +1,21 @@
+transaction_id,amount,transaction_type,sender_bank,receiver_bank,device_type,hour_of_day,day_of_week,transaction_freq_1hr,location_distance_km,new_device,failed_attempts,account_age_days,pin_changed_recently,is_weekend,upi_id
+FRD0001,99999,P2P,SBI,HDFC,Android,2,6,15,2500,1,4,5,1,1,xk92jd@oksbi
+FRD0002,150000,P2M,HDFC,SBI,iOS,3,6,18,2800,1,5,3,1,1,hacker1@okhdfcbank
+FRD0003,1,Recharge,ICICI,Axis,Web,1,0,12,2200,1,3,8,1,1,fraud99@okicici
+FRD0004,200000,Shopping,Axis,ICICI,Android,4,6,19,2900,1,5,2,1,1,scam123@ybl
+FRD0005,9999,Bill Payment,Kotak,SBI,iOS,2,6,16,2600,1,4,6,1,1,xyz789@okaxis
+FRD0006,175000,P2P,SBI,Kotak,Web,3,0,17,2700,1,5,4,1,1,abc123@oksbi
+FRD0007,2,P2M,HDFC,Axis,Android,1,6,13,2300,1,3,7,1,1,test999@okhdfcbank
+FRD0008,125000,Shopping,ICICI,SBI,iOS,4,6,18,2850,1,4,3,1,1,fake001@okicici
+FRD0009,99998,Recharge,Axis,HDFC,Web,2,0,15,2550,1,5,5,1,1,random@ybl
+FRD0010,180000,P2P,Kotak,ICICI,Android,3,6,19,2750,1,4,2,1,1,unknown@okaxis
+FRD0011,3,Bill Payment,SBI,Axis,iOS,1,6,12,2100,1,3,9,1,1,phish1@oksbi
+FRD0012,160000,P2P,HDFC,SBI,Web,4,0,16,2650,1,5,4,1,1,steal2@okhdfcbank
+FRD0013,9998,P2M,ICICI,Kotak,Android,2,6,14,2450,1,4,6,1,1,trick3@okicici
+FRD0014,145000,Shopping,Axis,HDFC,iOS,3,6,18,2800,1,5,3,1,1,cheat4@ybl
+FRD0015,4,Recharge,Kotak,ICICI,Web,1,0,11,2050,1,3,8,1,1,dupe5@okaxis
+FRD0016,190000,P2P,SBI,Axis,Android,4,6,17,2700,1,4,2,1,1,hack6@oksbi
+FRD0017,99997,Bill Payment,HDFC,SBI,iOS,2,6,15,2500,1,5,5,1,1,scam7@okhdfcbank
+FRD0018,135000,P2M,ICICI,Kotak,Web,3,0,19,2900,1,4,4,1,1,fake8@okicici
+FRD0019,5,Shopping,Axis,HDFC,Android,1,6,13,2150,1,3,7,1,1,fraud9@ybl
+FRD0020,170000,P2P,Kotak,ICICI,iOS,4,6,16,2750,1,5,3,1,1,steal0@okaxis

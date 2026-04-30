@@ -1,0 +1,21 @@
+transaction_id,amount,transaction_type,sender_bank,receiver_bank,device_type,hour_of_day,day_of_week,transaction_freq_1hr,location_distance_km,new_device,failed_attempts,account_age_days,pin_changed_recently,is_weekend,upi_id
+TXN0001,500,P2P,SBI,HDFC,Android,10,1,1,5,0,0,365,0,0,rahul@oksbi
+TXN0002,1200,P2M,HDFC,SBI,Android,14,2,2,12,0,0,720,0,0,priya@okhdfcbank
+TXN0003,250,Recharge,ICICI,Axis,iOS,11,3,1,8,0,0,180,0,0,amit@okicici
+TXN0004,3000,Shopping,Axis,ICICI,Android,16,4,2,20,0,1,1200,0,0,neha@ybl
+TXN0005,800,Bill Payment,Kotak,SBI,iOS,9,5,1,3,0,0,540,0,1,raj@okaxis
+TXN0006,150,P2P,SBI,Kotak,Web,13,1,1,15,0,0,890,0,0,sunita@oksbi
+TXN0007,4500,P2M,HDFC,Axis,Android,15,2,2,10,0,0,420,0,0,vikram@okhdfcbank
+TXN0008,2000,Shopping,ICICI,SBI,iOS,12,3,1,6,0,0,630,0,0,pooja@okicici
+TXN0009,600,Recharge,Axis,HDFC,Android,10,4,2,18,0,1,1500,0,0,deepak@ybl
+TXN0010,1800,P2P,Kotak,ICICI,Web,14,5,1,9,0,0,310,0,1,kavita@okaxis
+TXN0011,350,Bill Payment,SBI,Axis,Android,11,1,1,4,0,0,780,0,0,suresh@oksbi
+TXN0012,750,P2P,HDFC,SBI,iOS,16,2,2,11,0,0,450,0,0,anita@okhdfcbank
+TXN0013,1100,P2M,ICICI,Kotak,Android,9,3,1,7,0,0,920,0,0,mohan@okicici
+TXN0014,2500,Shopping,Axis,HDFC,Web,13,4,2,25,0,1,1100,0,0,sita@ybl
+TXN0015,400,Recharge,Kotak,ICICI,iOS,15,5,1,2,0,0,260,0,1,ramesh@okaxis
+TXN0016,900,P2P,SBI,Axis,Android,12,1,1,14,0,0,680,0,0,geeta@oksbi
+TXN0017,1600,Bill Payment,HDFC,SBI,Android,10,2,2,8,0,0,340,0,0,arun@okhdfcbank
+TXN0018,300,P2M,ICICI,Kotak,iOS,14,3,1,5,0,0,760,0,0,meena@okicici
+TXN0019,5000,Shopping,Axis,HDFC,Web,11,4,2,22,0,1,1400,0,0,vijay@ybl
+TXN0020,700,P2P,Kotak,ICICI,Android,16,5,1,6,0,0,490,0,1,lata@okaxis
