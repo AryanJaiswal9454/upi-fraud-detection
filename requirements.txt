@@ -3,3 +3,6 @@ pandas
 numpy
 scikit-learn
 plotly
+firebase-admin
+google-cloud-firestore
+grpcio
