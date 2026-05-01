@@ -66,7 +66,7 @@ def show_login_page():
         st.markdown("""
         <div class='auth-card'>
             <div class='auth-title'>🛡️ UPI Fraud Detection</div>
-            <div class='auth-subtitle'>Secure login — MCA Project · GBU Noida</div>
+            <div class='auth-subtitle'>Secure login — MCA Project by Aryan Jaiswal · Rsmt Varanasi</div>
         </div>""", unsafe_allow_html=True)
 
         with st.container():
