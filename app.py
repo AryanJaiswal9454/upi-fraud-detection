@@ -9,6 +9,9 @@ import sys
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+from login_page import show_login_page
+from admin_dashboard import show_admin_dashboard
+from auth import init_firebase, log_activity
 
 # ─── Page Config ────────────────────────────────────────────────────────────
 st.set_page_config(
@@ -17,6 +20,21 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
+# ─── Session defaults ────────────────────────────────────────────────────────
+if "logged_in" not in st.session_state:
+    st.session_state.logged_in  = False
+if "user_email" not in st.session_state:
+    st.session_state.user_email = ""
+if "user_name" not in st.session_state:
+    st.session_state.user_name  = ""
+if "user_role" not in st.session_state:
+    st.session_state.user_role  = "user"
+
+# ─── Gate: show login if not authenticated ───────────────────────────────────
+if not st.session_state.logged_in:
+    show_login_page()
+    st.stop()          # stop rendering rest of app until logged in
 
 # ─── Custom CSS ─────────────────────────────────────────────────────────────
 st.markdown("""
@@ -210,18 +228,42 @@ with st.sidebar:
     st.markdown("## 🛡️ UPI Fraud Detection")
     st.markdown("*AI-Powered Transaction Security*")
     st.markdown("---")
-    page = st.radio("Navigate", [
+
+    # User info
+    st.markdown(f"""
+    <div style="background:#1a2d40;border-radius:10px;padding:12px;margin-bottom:12px;">
+        <div style="font-size:0.8rem;color:#8899aa">Logged in as</div>
+        <div style="font-size:0.95rem;font-weight:600;color:#00d4ff">
+            {st.session_state.user_name}</div>
+        <div style="font-size:0.75rem;color:#556677">
+            {st.session_state.user_email}</div>
+    </div>""", unsafe_allow_html=True)
+
+    nav_options = [
         "🏠 Dashboard",
         "🎆 Predict Transaction",
         "📊 Model Analytics",
         "📋 Transaction Data"
-    ])
+    ]
+    # Admin gets extra option
+    if st.session_state.user_role == "admin":
+        nav_options.append("👑 Admin Dashboard")
+
+    page = st.radio("Navigate", nav_options)
     st.markdown("---")
     st.markdown("**Project Info**")
-    st.markdown("- 🎓 MCA Final Project")
-    st.markdown("- 🏫 Rsmt,Varanasi")
+    st.markdown("- 🎓 MCA Final Project by Aryan")
+    st.markdown("- 🏫 Rsmt ,Varanasi")
     st.markdown("- 🤖 ML Stack: sklearn")
     st.markdown("- 📦 Models: RF, GB, LR")
+    st.markdown("---")
+    if st.button("🚪 Logout", use_container_width=True):
+        db = init_firebase()
+        log_activity(db, st.session_state.user_email,
+                     "logout", status="success")
+        for key in ["logged_in", "user_email", "user_name", "user_role"]:
+            st.session_state[key] = False if key == "logged_in" else ""
+        st.rerun()
 
 
 # ─── Load everything ─────────────────────────────────────────────────────────
@@ -497,7 +539,7 @@ elif page == "🎆 Predict Transaction":
                                    help="Format: username@bankhandle")
         with upi_col2:
             st.markdown("<br>", unsafe_allow_html=True)
-            verify_btn = st.button("🔍 Verify UPI ID", use_container_width=True)
+            verify_btn = st.button("🎆 Verify UPI ID", use_container_width=True)
 
         upi_verified = False
         detected_bank = 'SBI'
@@ -554,7 +596,7 @@ elif page == "🎆 Predict Transaction":
         st.markdown("")
         btn_col = st.columns([1, 2, 1])[1]
         with btn_col:
-            predict_btn = st.button("🔍 ANALYZE TRANSACTION", use_container_width=True)
+            predict_btn = st.button("🎆 ANALYZE TRANSACTION", use_container_width=True)
 
         if predict_btn:
             if upi_id and not upi_verified:
@@ -945,3 +987,12 @@ elif page == "📋 Transaction Data":
             user_csv = df_live[df_live['source'] == 'user_input'].to_csv(index=False)
             st.download_button("⬇️ Download User Submissions Only", user_csv,
                                "user_submitted_transactions.csv", "text/csv")
+
+# ══════════════════════════════════════════════════════════════
+# PAGE 5: ADMIN DASHBOARD
+# ══════════════════════════════════════════════════════════════
+elif page == "👑 Admin Dashboard":
+    if st.session_state.user_role != "admin":
+        st.error("⛔ Access denied. Admins only.")
+    else:
+        show_admin_dashboard()

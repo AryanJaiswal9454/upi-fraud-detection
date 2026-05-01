@@ -1,15 +1,9 @@
-# Python
+firebase_key.json
+firebase_key.json.json
+.streamlit/secrets.toml
 __pycache__/
 *.pyc
-*.pyo
-*.pyd
-venv/
 myenv/
-.env
-
-# Keep models but ignore large temp files
-*.log
-
-# NOT ignoring these — we want them on GitHub
-# models/
-# .streamlit/
+venv/
+models/
+*.pkl
