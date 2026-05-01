@@ -13,13 +13,20 @@ from email.mime.multipart import MIMEMultipart
 # ─── Firebase Init ────────────────────────────────────────────────────────────
 def init_firebase():
     if not firebase_admin._apps:
-        # Try Streamlit secrets first (for cloud deployment)
         try:
+            # Read from Streamlit secrets (works on cloud)
             key_dict = dict(st.secrets["firebase"])
+            # Fix private key - replace literal \n with real newlines
+            if "private_key" in key_dict:
+                key_dict["private_key"] = key_dict["private_key"].replace("\\n", "\n")
             cred = credentials.Certificate(key_dict)
-        except Exception:
-            # Fall back to local file
-            cred = credentials.Certificate("firebase_key.json")
+        except Exception as e1:
+            # Fall back to local json file for local development
+            if os.path.exists("firebase_key.json"):
+                cred = credentials.Certificate("firebase_key.json")
+            else:
+                st.error(f"Firebase credentials missing. Configure Streamlit Secrets. Error: {e1}")
+                st.stop()
         firebase_admin.initialize_app(cred)
     return firestore.client()
 
