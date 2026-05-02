@@ -1,5 +1,5 @@
 # 🛡️ UPI Fraud Detection System
-### MCA Final Year Project | GBU Noida | Semester 4
+### MCA Final Year Project by Aryan Jaiswal | RSMT Varanasi  | Semester 4
 
 ## 📌 Project Overview
 An AI/ML-powered system to detect fraudulent UPI transactions in real-time using machine learning algorithms including Random Forest, Gradient Boosting, and Logistic Regression.
